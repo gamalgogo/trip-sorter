@@ -1,0 +1,30 @@
+[
+  {
+    "departure": "London Airport",
+    "arrival": "Athens",
+    "transport": "Plane",
+    "seat": "5B",
+    "gate": "3"
+  },
+  {
+    "departure": "Athens Airport",
+    "arrival": "Abu Dhabi",
+    "transport": "Plane",
+    "seat": "6B",
+    "gate": "5"
+  },
+  {
+    "departure": "Abu Dhabi",
+    "arrival": "Dubai",
+    "transport": "Train",
+    "seat": "17B",
+    "gate": "4"
+  },
+  {
+    "departure": "Dubai",
+    "arrival": "Sharjah",
+    "transport": "Bus",
+    "seat": "45B",
+    "gate": "2"
+  }
+]

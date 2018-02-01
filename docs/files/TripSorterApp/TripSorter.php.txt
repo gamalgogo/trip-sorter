@@ -1,0 +1,75 @@
+<?php
+namespace TripSorterApp;
+
+/**
+ * Class TripSorter
+ * @package TripSorterApp
+ */
+class TripSorter
+{
+    /**
+     * @var BoardingCards
+     */
+    private $boardingCards;
+
+    /**
+     * TripSorter constructor.
+     */
+    public function __construct()
+    {
+        $this->boardingCards = new BoardingCards();
+    }
+
+    /**
+     * @return string
+     */
+    public function createTrips()
+    {
+        $boardingCards = $this->boardingCards->getCards();
+        $sorted_cards = $this->BubbleSort($boardingCards, count($boardingCards), 0);
+        $drawer = new Drawer();
+
+        return $drawer->drawTrips($sorted_cards);
+    }
+
+    /**
+     * @param $cards
+     * @param $length
+     * @param int $start
+     * @return mixed
+     */
+    private function BubbleSort($cards, $length, $start = 0)
+    {
+        if ($start == $length - 1) {
+            return $cards;
+        }
+        for ($i = $start; $i < $length; $i++) {
+            for ($key = $i + 1; $key < $length; $key++) {
+                if ($cards[$i]['departure'] == $cards[$key]['arrival']) {
+                    $cards = $this->swap($cards, $i, $key);
+
+                    return $this->BubbleSort($cards, $length, $i);
+                }
+            }
+        }
+
+        return $cards;
+    }
+
+    /**
+     * @param $array
+     * @param $one
+     * @param $two
+     * @return mixed
+     */
+    private function swap($array, $one, $two)
+    {
+        $temp = $array[$one];
+        $array[$one] = $array[$two];
+        $array[$two] = $temp;
+
+        return $array;
+    }
+
+}
+
